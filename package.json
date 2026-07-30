@@ -1,0 +1,32 @@
+{
+  "name": "texas-ringer-nextgen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "description": "Texas Ringer: The Next Gen — archery tournament results (brackets, champions) site",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "sync:events": "node --env-file=.env --import tsx scripts/sync-events.ts"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
