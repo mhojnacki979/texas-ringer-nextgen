@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="site-header-inner">
             <Link href="/" className="wordmark" aria-label="Texas Ringer: The Next Gen">
               <img
-                src={asset('/brand/ringer-wordmark.png')}
+                src={asset('/brand/ringer-nextgen-wordmark.png')}
                 alt="2026 Texas Ringer: The Next Gen"
                 className="wordmark-logo"
               />
