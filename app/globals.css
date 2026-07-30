@@ -343,6 +343,77 @@ a.button:hover {
   text-decoration: none;
 }
 
+/* ---------- Next Gen hero ---------- */
+
+.nextgen-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.75rem;
+}
+
+.nextgen-hero-mark {
+  height: 96px;
+  width: auto;
+  margin-bottom: 1.1rem;
+}
+
+.nextgen-hero-kicker {
+  font-family: var(--font-condensed);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* "NEXT GEN" in the Texas Ringer treatment: navy-top / red-bottom flag fill,
+   white outline, hard drop shadow — echoes the wordmark logo. */
+.nextgen-hero-title {
+  font-family: var(--font-heavy);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  font-size: clamp(3.5rem, 13vw, 9rem);
+  margin: 0;
+  background: linear-gradient(180deg, var(--navy) 0 56%, var(--red) 56% 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  paint-order: stroke fill;
+  filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.5));
+}
+
+.nextgen-hero-rule {
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin: 1.25rem 0 1.1rem;
+  background: linear-gradient(90deg, var(--navy), var(--red));
+  border-radius: 2px;
+}
+
+.nextgen-hero-tagline {
+  font-family: var(--font-condensed);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .nextgen-hero-mark {
+    height: 68px;
+  }
+}
+
 @media (max-width: 700px) {
   .hero {
     flex-direction: column;
