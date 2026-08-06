@@ -26,6 +26,12 @@ const TOURNAMENTS = [
     id: 'd2hHaFVkWEFKNDdoSTRQNWVwQ0pxZz09',
     name: '2026 Texas Ringer The Next Gen',
   },
+  {
+    // EOS calls this "2025 Texas Jr Ringer"; we brand it as the Next Gen event.
+    year: 2025,
+    id: 'SllUZ3RFTjhrL01PQm9SM2lGSURiUT09',
+    name: '2025 Texas Ringer The Next Gen',
+  },
 ] as const
 
 async function post(url: string): Promise<any> {
@@ -65,10 +71,13 @@ function toMatches(shooters: any[]) {
   return matches
 }
 
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
 function sessionDate(rows: any[]): string {
   for (const r of rows) {
     const m = /(\d{2})-(\d{2})-(\d{4})/.exec(String(r.session ?? ''))
-    if (m) return `${m[3]}-${m[1]}-${m[2]}`
+    // EOS sessions are MM-DD-YYYY — render as "Sep 13, 2025".
+    if (m) return `${MONTHS[Number(m[1]) - 1]} ${Number(m[2])}, ${m[3]}`
   }
   return ''
 }
@@ -82,7 +91,11 @@ async function syncTournament(t: (typeof TOURNAMENTS)[number]) {
   let date = ''
 
   for (const group of Object.keys(qualSorting)) {
-    const rows = Object.values(qualSorting[group] ?? {}) as any[]
+    // Each group mixes shooter rows with metadata keys (max_round_count,
+    // elimination_round_list, active_elimination_round) — keep only shooters.
+    const rows = (Object.values(qualSorting[group] ?? {}) as any[]).filter(
+      (v) => typeof v === 'object' && v !== null && 'name' in v,
+    )
     if (rows.length === 0) continue
     archers += rows.length
     if (date === '') date = sessionDate(rows)
@@ -123,6 +136,13 @@ async function syncTournament(t: (typeof TOURNAMENTS)[number]) {
     }
 
     divisions.push({ name: group, champion, qualification, bracket })
+  }
+
+  // Future events have no scores yet — leave the hand-maintained
+  // "coming soon" JSON in place instead of clobbering it with an empty result.
+  if (archers === 0) {
+    console.log(`${t.year}: no scores yet — leaving existing JSON untouched`)
+    return
   }
 
   const out = {

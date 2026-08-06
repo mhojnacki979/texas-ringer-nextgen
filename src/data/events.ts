@@ -6,6 +6,7 @@
  * (tournament_group_bracket_layout): seeds, head-to-head matches, real winners.
  */
 import event2026 from './events/2026.json'
+import event2025 from './events/2025.json'
 
 export interface EventQualRow {
   rank: number
@@ -56,7 +57,7 @@ export interface AnnualEvent {
   comingSoon?: boolean
 }
 
-const EVENTS: AnnualEvent[] = [event2026 as AnnualEvent]
+const EVENTS: AnnualEvent[] = [event2026 as AnnualEvent, event2025 as AnnualEvent]
 
 export function listEvents(): AnnualEvent[] {
   return EVENTS
