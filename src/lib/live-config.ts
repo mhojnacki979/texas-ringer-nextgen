@@ -14,4 +14,7 @@ export interface LiveTournament {
 // No event live right now — the Next Gen shoots Aug 29, 2026. When it goes live,
 // set this to the tournament below and push; set back to null when it ends.
 //   { id: 'd2hHaFVkWEFKNDdoSTRQNWVwQ0pxZz09', name: '2026 Texas Ringer The Next Gen' }
-export const LIVE_TOURNAMENT: LiveTournament | null = null
+export const LIVE_TOURNAMENT: LiveTournament | null = {
+  id: 'd2hHaFVkWEFKNDdoSTRQNWVwQ0pxZz09',
+  name: '2026 Texas Ringer The Next Gen',
+}

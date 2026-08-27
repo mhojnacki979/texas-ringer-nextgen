@@ -1649,4 +1649,27 @@ a.button:hover {
   .leader-numbers {
     width: 100%;
   }
+  /* Standings must fit a phone in portrait — the 760px floor pushed the
+     Score column off-screen (only visible after scrolling right / in
+     landscape). Drop it so every column fits, tighten spacing, and let
+     long archer names wrap instead of forcing horizontal overflow. */
+  .board-table {
+    min-width: 0;
+    font-size: 0.85rem;
+  }
+  .board-table th,
+  .board-table td {
+    padding: 0.6rem 0.5rem;
+  }
+  .board-table td:nth-child(2) {
+    white-space: normal;
+  }
+  .rank-badge {
+    min-width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.95rem;
+  }
+  .score-total {
+    font-size: 1.1rem;
+  }
 }
