@@ -1643,8 +1643,18 @@ a.button:hover {
   .site-main {
     padding: 1.5rem 1rem 3rem;
   }
+  /* Keep the nav reachable on phones — it was hidden, so from the home page
+     there was no way to reach Live scoring in portrait (it only reappeared in
+     landscape, when the viewport widened past this breakpoint). Stack it under
+     the logo instead. */
+  .site-header-inner {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.9rem 1rem;
+  }
   .site-nav {
-    display: none;
+    display: flex;
+    gap: 1.5rem;
   }
   .leader-numbers {
     width: 100%;
