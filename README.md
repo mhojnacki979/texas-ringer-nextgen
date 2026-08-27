@@ -1,5 +1,11 @@
 # Texas Ringer: The Next Gen
 
+> ⚠️ **Retired / archived (2026-08-27).** This standalone build has been
+> superseded. The live 2026 Texas Ringer: The Next Gen scoring runs on the main
+> Texas Ringer site — **https://texasringer.eyesonscore.com** (repo
+> [`mhojnacki979/texas-ringer`](https://github.com/mhojnacki979/texas-ringer)).
+> This repo is kept read-only as a backup; do not deploy from it.
+
 Public results site for the **2026 Texas Ringer: The Next Gen** archery
 tournament — single-elimination brackets, champions, and qualification
 standings, powered by [Eyes on Score](https://www.eyesonscore.com).
